@@ -1,3 +1,49 @@
+import { settingsStorage, statsStorage } from "@/utils/storage";
+import { DEFAULT_SETTINGS, DEFAULT_STATS } from "@/utils/types";
+import type { Message, Stats } from "@/utils/types";
+
 export default defineBackground(() => {
-  console.log('Hello background!', { id: browser.runtime.id });
+  console.log(
+    "[X Feed Filter] Background service worker started (Keyword-Only Mode)",
+  );
+
+  // Handle messages from content script and popup
+  browser.runtime.onMessage.addListener(
+    (request: Message, _sender, sendResponse: (response: unknown) => void) => {
+      if (request.action === "getStats") {
+        statsStorage.getValue().then((stats) => {
+          sendResponse({ stats: stats ?? DEFAULT_STATS });
+        });
+        return true;
+      }
+
+      if (request.action === "updateStats") {
+        statsStorage.getValue().then(async (current) => {
+          const stats: Stats = current ?? { ...DEFAULT_STATS };
+          if (request.filtered) stats.filtered++;
+          else stats.allowed++;
+          stats.total++;
+          await statsStorage.setValue(stats);
+          sendResponse({ success: true });
+        });
+        return true;
+      }
+
+      if (request.action === "resetStats") {
+        statsStorage.setValue({ ...DEFAULT_STATS }).then(() => {
+          sendResponse({ success: true });
+        });
+        return true;
+      }
+    },
+  );
+
+  // Initialize defaults on install
+  browser.runtime.onInstalled.addListener(async () => {
+    await statsStorage.setValue({ ...DEFAULT_STATS });
+    const existing = await settingsStorage.getValue();
+    if (!existing) {
+      await settingsStorage.setValue({ ...DEFAULT_SETTINGS });
+    }
+  });
 });
