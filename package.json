@@ -1,5 +1,5 @@
 {
-  "name": "Tweet Filter",
+  "name": "zenx",
   "description": "A browser extension that filters tweets based on keywords",
   "private": true,
   "version": "0.1.0",

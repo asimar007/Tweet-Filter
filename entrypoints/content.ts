@@ -41,12 +41,12 @@ export default defineContentScript({
     // ============================================
 
     async function init() {
-      console.log("[X Feed Filter] Initializing...");
+      console.log("[ZenX] Initializing...");
 
       settings = (await settingsStorage.getValue()) ?? DEFAULT_SETTINGS;
 
       if (!settings.enabled) {
-        console.log("[X Feed Filter] Extension starts disabled");
+        console.log("[ZenX] Extension starts disabled");
         // We do not return here. We must start observeFeed() so we can process
         // new tweets if the user enables the extension later.
       }
@@ -58,7 +58,7 @@ export default defineContentScript({
       observeFeed();
       processExistingTweets();
 
-      console.log("[X Feed Filter] Ready! (Keyword-Only Matcher)");
+      console.log("[ZenX] Ready! (Keyword-Only Matcher)");
     }
 
     // ============================================

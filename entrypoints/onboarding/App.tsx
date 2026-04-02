@@ -33,7 +33,7 @@ export default function App() {
   return (
     <div className="max-w-2xl mx-auto px-6 py-12">
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-extrabold mb-4 tracking-tight">Welcome to Tweet Filter!</h1>
+        <h1 className="text-4xl font-extrabold mb-4 tracking-tight">Welcome to ZenX!</h1>
         <p className="text-gray-600 text-lg">
           Please select the topics you'd like to filter from your X/Twitter feed.
         </p>

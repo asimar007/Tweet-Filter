@@ -4,7 +4,7 @@ import type { Message, Stats } from "@/utils/types";
 
 export default defineBackground(() => {
   console.log(
-    "[X Feed Filter] Background service worker started (Keyword-Only Mode)",
+    "[ZenX] Background service worker started (Keyword-Only Mode)",
   );
 
   // Handle messages from content script and popup

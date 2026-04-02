@@ -8,6 +8,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   }),
   manifest: {
+    name: "ZenX",
     permissions: ["storage"],
     icons: {
       16: "/icon/icon.png",

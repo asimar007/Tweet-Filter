@@ -2,8 +2,8 @@ export function Header({ enabled, onToggle }: { enabled: boolean; onToggle: (v: 
   return (
     <header className="flex justify-between items-center px-5 py-4 bg-linear-to-br from-blue-500 to-blue-600 sticky top-0 z-10 shadow-md">
       <div className="flex items-center gap-2.5">
-        <img src="/icon/icon.png" alt="Tweet Filter" className="w-7 h-7 drop-shadow-sm" />
-        <h1 className="text-lg font-bold text-white tracking-wide">X Feed Filter</h1>
+        <img src="/icon/icon.png" alt="ZenX" className="w-7 h-7 drop-shadow-sm" />
+        <h1 className="text-lg font-bold text-white tracking-wide">ZenX</h1>
       </div>
       <label className="relative inline-flex items-center cursor-pointer">
         <input 
