@@ -1,8 +1,29 @@
 {
   "name": "zenx",
-  "description": "A browser extension that filters tweets based on keywords",
-  "private": true,
   "version": "1.0.0",
+  "description": "A browser extension that silently filters political, toxic, and controversial tweets from your X (Twitter) feed.",
+  "author": "Asim <https://github.com/asimar007>",
+  "license": "Apache-2.0",
+  "homepage": "https://zenx.asimsk.site",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asimar007/ZenX.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asimar007/ZenX/issues"
+  },
+  "keywords": [
+    "browser-extension",
+    "chrome-extension",
+    "twitter",
+    "x-twitter",
+    "content-filter",
+    "react",
+    "typescript",
+    "wxt",
+    "manifest-v3"
+  ],
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "wxt",
